@@ -43,6 +43,7 @@ class ManagePagesController extends Controller
         ]);
 
         $data = [];
+        $data['status'] = 1;
 
         try{ 
         if(is_numeric($request->subMenu_id) ){
