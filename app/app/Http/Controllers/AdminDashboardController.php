@@ -22,4 +22,16 @@ class AdminDashboardController extends Controller
         ->with('bheading', 'Index')
         ->with('breadcrumb', 'Index');
     }
+
+    public function Home(){
+        return view('admin.index', [
+            'applicants' => AppliedJob::latest()->take(3)->get(),
+            'applicant' => AppliedJob::latest()->get(),
+            'blogs' =>  Blog::get(),
+            'jobs' => ClientJob::get(),
+            'logins' => AdminActivity::get()
+        ])
+        ->with('bheading', 'Index')
+        ->with('breadcrumb', 'Index');
+    }
 }
