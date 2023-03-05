@@ -1,10 +1,10 @@
 
 <!--=======================Javascript============================-->
 <!--=== All Vendor Js ===-->
-<script src="{{asset('/assets/js/vendor/modernizr.min.js')}}"></script>
-<script src="{{asset('/assets/js/vendor/jquery.min.js')}}"></script>
-<script src="{{asset('/assets/js/vendor/jquery-migrate.min.js')}}"></script>
-<script src="{{asset('/assets/js/vendor/bootstrap.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendors/modernizr.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendors/jquery.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendors/jquery-migrate.min.js')}}"></script>
+<script src="{{asset('/assets/js/vendors/bootstrap.min.js')}}"></script>
 <script src="{{asset('/assets/js/plugins/headroom.min.js')}}"></script>
 <script src="{{asset('/assets/js/plugins/hoverdir.min.js')}}"></script>
 <script src="{{asset('/assets/js/plugins/isotope.pkgd.min.js')}}"></script>
