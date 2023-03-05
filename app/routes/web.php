@@ -33,7 +33,7 @@ use App\Http\Controllers\SettingsController;
 Route::group(['prefix' => 'admins', 'as' => 'admin.'], function(){
 Route::middleware('auth')->group(function(){
     Route::get('/', [AdminDashboardController::class, 'Index'])->name('index');
-    Route::get('/index', [AdminDashboardController::class, 'Index'])->name('index');
+    Route::get('/index', [AdminDashboardController::class, 'Index'])->name('home');
     Route::controller(MenuPage::class)->group(function(){
         Route::get('/website/menus', 'Index')->name('menu.index');
         Route::get('/website/menu/create',  'Create')->name('addMenu');
