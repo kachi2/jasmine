@@ -8,7 +8,7 @@
     <title> {{$settings->site_name}}</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="{{asset('/asset/img/favicon.ico')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('/images/fav.png')}}" type="image/x-icon"/>
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet"/>
