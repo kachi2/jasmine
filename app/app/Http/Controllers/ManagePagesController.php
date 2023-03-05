@@ -24,7 +24,7 @@ class ManagePagesController extends Controller
 
     public function PagesCreate(){
         return view('admin.pages.create', [
-            'Pagesmenu' => Menu::where('is_active', '!=', null)->get()
+            'Pagesmenu' => Menu::get()
         ])
         ->with('bheading', 'Manage pages')
         ->with('breadcrumb', 'Create Page');
