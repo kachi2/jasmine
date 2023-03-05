@@ -48,7 +48,7 @@
                 <!-- Start Single Service Item -->
                 <div class="service-item service-item--three white-bg">
                     <div class="service-item__icon">
-                        <i class=""><img src="{{asset('images/'.$service->image)}}" width="50px"></i>
+                        <i class=""><img  style="border-radius: 6px" src="{{asset('images/'.$service->image)}}" width="50px"></i>
                     </div>
 
                     <div class="service-item__info">
