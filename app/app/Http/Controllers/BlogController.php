@@ -95,7 +95,6 @@ class BlogController extends Controller
     }
     }
 
-
     public function BlogsDelete($id){
         $blog = Blog::whereId(decrypt($id))->first();
         $blog->delete();
