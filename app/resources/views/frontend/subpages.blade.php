@@ -24,22 +24,7 @@
     <div class="service-details-page-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3  order-lg-0">
-                    <aside class="sidebar-wrapper">
-                        <!-- Start Single Sidebar -->
-                        <div class="sidebar-item">
-                            <h3 class="sidebar-title">{{$pages->menu?$pages->Menu->name:$pages->subMenu->Menu->name}}</h3>
-                            <div class="sidebar-body">
-                                <ul class="sidebar-list">
-                                    @foreach ($sidebar as $menu )
-                                    <li><a href="{{route('subpages', encrypt($menu->id))}}">{{$menu->name}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    
-                </div>
+               
 
                 <div class="col-lg-9 order-0">
                     <div class="service-details-content">
@@ -59,6 +44,23 @@
 
                     </div>
 
+                </div>
+
+                <div class="col-lg-3  order-lg-0">
+                    <aside class="sidebar-wrapper">
+                        <!-- Start Single Sidebar -->
+                        <div class="sidebar-item">
+                            <h3 class="sidebar-title">{{$pages->menu?$pages->Menu->name:$pages->subMenu->Menu->name}}</h3>
+                            <div class="sidebar-body">
+                                <ul class="sidebar-list">
+                                    @foreach ($sidebar as $menu )
+                                    <li><a href="{{route('subpages', encrypt($menu->id))}}">{{$menu->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    
                 </div>
             </div>
         </div>
