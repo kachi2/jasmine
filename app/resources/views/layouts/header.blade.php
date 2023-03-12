@@ -22,11 +22,10 @@
                 <div class="col-lg-4 d-none d-lg-block">
                     <div class="pre-header-right text-center text-md-end">
                         <div class="social-icons">
-                            <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                            <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a>
-                            <a href="{{$settings->intagram}}"><i class="fa fa-instagram"></i></a>
-                            <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a>
+                            <a  target="_blank" href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank"  href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank"  href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a>
+                            <a target="_blank" href="{{$settings->intagram}}"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

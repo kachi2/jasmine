@@ -10,11 +10,10 @@
                             <img class="mb-24" src="{{asset('/assets/logo.png')}}" alt="Logo"/>
                             <p>{{$settings->about}}.</p>
                             <div class="social-icons social-icons--two mt-22">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +31,7 @@
                             <div class="widget-body">
                                 <ul class="list list-6">
                                     @foreach ($menus as $menu )
-                                    <li> <a href="{{route('pages', $menu->id)}}">{{$menu->name}}</a> </li>
+                                    <li> <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> </li>
                                     @endforeach
                                
                                 </ul>
