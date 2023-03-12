@@ -88,19 +88,19 @@ class ClientJobController extends Controller
 
     public function RequestService(Request $request){
 
-    //      $request->validate([
-    //         'captcha' => 'required',
-    //         'services' => 'required'
-    //     ]);
+         $request->validate([
+            'captcha' => 'required',
+            'services' => 'required'
+        ]);
     
 
-    //    $capt = captcha_check($request->captcha);
-    //     if(!$capt){
-    //         Session::flash('message', 'Captcha does not match, try again');
-    //         Session::flash('alert', 'danger');
-    //         return back()->withInput($request->all());
+       $capt = captcha_check($request->captcha);
+        if(!$capt){
+            Session::flash('message', 'Captcha does not match, try again');
+            Session::flash('alert', 'danger');
+            return back()->withInput($request->all());
            
-    //     }
+        }
 
         if(!$request->key){
             return back()->withInput();

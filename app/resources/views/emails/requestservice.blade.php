@@ -64,8 +64,13 @@
     <td> {{$data['end_date']}}</td>
     </tr>
 
+    <tr>
+        <td width="150">Customer Message</td>
+        <td width="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+        <td> {{$data['message']}}</td>
+        </tr>
+
 </tbody></table>
-<p>If you have any issues or complaints regarding any transaction, kindly send us an email at support@Mazeoptions.com</p>
 
             </td>
         </tr>
