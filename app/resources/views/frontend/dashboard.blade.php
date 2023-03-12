@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="testimonial-content-wrap">
-                    <div class="ht-slick-slider" data-slick='{"slidesToShow": 1, "autoplay": true, "arrows": false}'>
+                    <div class="ht-slick-slider" data-slick='{"slidesToShow": 1, "autoplay": false, "arrows": true}'>
                         <!-- Start Single Testimonial Item -->
                         @forelse ($testimonials as  $testm)
                         <div class="testimonial-item testimonial-item--3">

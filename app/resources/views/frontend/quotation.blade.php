@@ -42,27 +42,27 @@
                                     <div class="row mb-20">
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="name" placeholder="Your Name*" required/>
+                                                <input type="text" name="name"  value="{{old('name')}}" placeholder="Your Name*" required/>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="phone" placeholder="Your Phone"/>
+                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone"/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
 
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="email" name="email" placeholder="Your Email*"
+                                                <input type="email" name="email" value="{{old('email')}}" placeholder="Your Email*"
                                                        required/>
                                             </div>
                                         </div>
                                       
                                             <div class="col-lg-3">
                                                 <div class="form-input-item">
-                                                    <input type="text" name="address" placeholder="Your Address*" required/>
+                                                    <input type="text" name="address" value="{{old('address')}}" placeholder="Your Address*" required/>
                                                 </div>
                                             </div>
 
@@ -78,7 +78,7 @@
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
                                                
-                                                <input type="date" name="start_date" placeholder="Start date of our service*"
+                                                <input type="date" name="start_date" value="{{old('start_date')}}" placeholder="Start date of our service*"
                                                        required/>
                                                        Start date of our service
                                             </div>
@@ -86,7 +86,7 @@
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
                                                 
-                                                <input type="date" name="end_date" placeholder="End date of our service"
+                                                <input type="date" name="end_date" value="{{old('end_date')}}" placeholder="End date of our service"
                                                        required/>
                                                        End date of our service
                                             </div>
@@ -112,18 +112,29 @@
 
                                     <div class="form-input-item">
                                         <textarea name="message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required></textarea>
+                                                  placeholder="Write your Message*" required> {{old('message')}}</textarea>
                                     </div>
 
+                                    <p> @php echo captcha_img() @endphp </p>
+                                   <p><input type="text" placeholder="Enter captcha" name="captcha">
+                                    </p>
+
+                                    <p class="p-1">
+                                        @if(Session::has('message'))
+                                        <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
+                                        @endif
+                                        {{-- @error('captcha')
+                                        <span class="alert alert-danger"> {{$message}}</span>
+                                        @enderror --}}
+                                    </p>
+                                   <div class="p-2"></div>
                                     <div class="form-input-item">
                                         <button type="submit" class="btn btn-brand">Send Message</button>
                                     </div>
                                 </div>
-
+                               
                                 <!-- Show Message Notification -->
-                                @if(Session::has('message'))
-                                        <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
-                                        @endif
+                               
                             </form>
                         </div>
                     </div>

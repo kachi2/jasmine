@@ -7,6 +7,7 @@ use App\Models\AppliedJob;
 use Illuminate\Support\Facades\Session;
 use App\Models\ClientJob;
 use App\Models\Industry;
+use Illuminate\Support\Facades\Validator;
 use App\Mail\RequestServiceMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -86,6 +87,20 @@ class ClientJobController extends Controller
     }
 
     public function RequestService(Request $request){
+
+    //      $request->validate([
+    //         'captcha' => 'required',
+    //         'services' => 'required'
+    //     ]);
+    
+
+    //    $capt = captcha_check($request->captcha);
+    //     if(!$capt){
+    //         Session::flash('message', 'Captcha does not match, try again');
+    //         Session::flash('alert', 'danger');
+    //         return back()->withInput($request->all());
+           
+    //     }
 
         if(!$request->key){
             return back()->withInput();
