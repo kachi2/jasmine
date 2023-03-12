@@ -1,22 +1,25 @@
 @extends('layouts.app')
 @section('contents')
 
-<div class="page-header-area">
+@if(isset($breadcrums))
+<div class="page-header-area" style="background: #ddd url('{{asset('/images/'.$breadcrums->image)}}') center">
+   @else 
+   <div class="page-header-area" style="background: #ddd url('{{asset('/images')}}') no-repeat center">
+   @endif
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 col-lg-4">
                 <div class="page-header-title text-center text-md-start">
-                    <h1>Request a Service</h1>
+                    {{-- <h1>Blog Details</h1> --}}
                 </div>
             </div>
-
             <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
+                {{-- <nav class="page-header-breadcrumb text-center text-md-end">
                     <ul class="breadcrumb">
                         <li><a href="{{route('index')}}">Home</a></li>
-                        <li class="active"><a href="">Request a Service<</a></li>
+                        <li class="active"><a href="">Blog Details</a></li>
                     </ul>
-                </nav>
+                </nav> --}}
             </div>
         </div>
     </div>
@@ -48,7 +51,7 @@
 
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone"/>
+                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone" required/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
@@ -86,8 +89,7 @@
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
                                                 
-                                                <input type="date" name="end_date" value="{{old('end_date')}}" placeholder="End date of our service"
-                                                       required/>
+                                                <input type="date" name="end_date" value="{{old('end_date')}}" placeholder="End date of our service" />
                                                        End date of our service
                                             </div>
                                         </div>
@@ -96,7 +98,10 @@
 
 
                                     <div class="row mb-20">
-                                        Kindly select your current need
+                                        <div class="section-title-wrap mb-36 mb-sm-26">
+                                            <h2 style="font-size:20px; font-weight:500"> Kindly select your current need</h2>
+                                        </div>
+                                       
                                         @foreach ($services as $service )
                                            
                                         <div class="col-lg-2">

@@ -1,28 +1,29 @@
 @extends('layouts.app')
 @section('contents')
-
-<div class="page-header-area">
+@if(isset($breadcrums))
+<div class="page-header-area" style="background: #ddd url('{{asset('/images/'.$breadcrums->image)}}')  center">
+   @else 
+   <div class="page-header-area" style="background: #ddd url('{{asset('/images')}}') no-repeat center">
+   @endif
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 col-lg-4">
                 <div class="page-header-title text-center text-md-start">
-                    <h1>Blog Grid Right Sidebar</h1>
+                    {{-- <h1>Blog Details</h1> --}}
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
+                {{-- <nav class="page-header-breadcrumb text-center text-md-end">
                     <ul class="breadcrumb">
                         <li><a href="{{route('index')}}">Home</a></li>
-                        <li class="active"><a href="">Blog Grid Right Sidebar</a></li>
+                        <li class="active"><a href="">Blog Details</a></li>
                     </ul>
-                </nav>
+                </nav> --}}
             </div>
         </div>
     </div>
 </div>
-<!-- End Page Header Area -->
-
 <!-- Start Page Content Wrapper -->
 <div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-52 mb-xl-30">
     <div class="blog-page-area-wrapper">
@@ -33,7 +34,7 @@
                         <div class="row news-grid">
 
                             @forelse ($blogs as  $blog)
-                            <div class="col-sm-6 col-lg-4">
+                            <div class="col-sm-12 col-lg-4">
                                 <!-- Start Single News Item -->
                                 <div class="news-item">
                                     <figure class="news-item__thumb">
@@ -46,9 +47,9 @@
                                             <a href="{{route('blog.details', encrypt($blog->id))}}" class="post-date"><i class="fa fa-clock-o"></i>
                                                 {{$blog->created_at->format('d/m/y')}}</a>
                                         </div>
-                                        <p style="color:#fff">{!! substr($blog->contents, 0, 200) !!}
+                                        <p style="color:#fff">{!! substr($blog->contents, 0, 500) !!}
                                             </p>
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a>
+                                        {{-- <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a> --}}
                                     </div>
                                 </div>
                                 <!-- End Single News Item -->
@@ -62,7 +63,7 @@
 
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-12">
                                 <!-- Start Pagination Wrap -->
                                 <div class="pagination-wrap mt-60 mt-md-40 mt-sm-40">
@@ -76,11 +77,11 @@
                                 </div>
                                 <!-- End Pagination Wrap -->
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
-                <div class="col-lg-3">
+                {{-- <div class="col-lg-3">
                     <div class="sidebar-area mt-md-52 mt-sm-52">
                         <aside class="sidebar-wrapper">
                           
@@ -119,7 +120,7 @@
                             <!-- End Single Sidebar -->
                         </aside>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

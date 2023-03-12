@@ -96,7 +96,7 @@
                     <div class="news-content-inner mt-30">
                         <div class="ht-slick-wrapper">
                             <div class="ht-slick-slider slick-row-30"
-                                 data-slick='{"slidesToShow": 2, "prevArrow":"#news-prev", "nextArrow":"#news-next", "responsive":[{"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                                 data-slick='{"slidesToShow": 1, "prevArrow":"#news-prev", "nextArrow":"#news-next", "responsive":[{"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
                                 <!-- Start Single News Item -->
                                 
                                 @forelse ($blogs as $blog )
@@ -105,8 +105,7 @@
                                     <figure class="news-item__thumb">
                                         <a href="#"><img src="{{asset('images/'.$blog->image)}}" alt="Post"/></a>
                                         <figcaption class="news-item__thumb-hvr hvr-dir">
-                                            <a href="{{asset('images/'.$blog->image)}}" class="btn-zoom btn-popup-img"><i
-                                                    class="fa fa-search-plus"></i></a>
+                                            <a href="{{asset('images/'.$blog->image)}}" class=""></a>
                                         </figcaption>
                                     </figure>
 
@@ -115,8 +114,8 @@
                                         <div class="post-meta">
                                             <a href="#" class="post-date"><i class="fa fa-clock-o"></i> {{$blog->created_at->format('d/m/y')}}</a>
                                         </div>
-                                        <p>{!! substr($blog->contents, 0, 200) !!}</p>
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a>
+                                        <p>{!! substr($blog->contents, 0, 400) !!}</p>
+                                        <a href="{{route('pages',encrypt(8))}}" class="btn btn-brand">ReadMore</a>
                                     </div>
                                 </div>    
                                 @empty
@@ -142,7 +141,7 @@
                         @forelse ($testimonials as  $testm)
                         <div class="testimonial-item testimonial-item--3">
                             <div class="testimonial-item__quote">
-                                <p>{!! $testm->content !!}</p>
+                                <p style="color:#000; background:#595656" >{!! $testm->content !!}</p>
                             </div>
                             <div class="testimonial-item__client">
                                 <figure class="testimonial-item__client__thumb">
@@ -188,9 +187,9 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 p-2">
                 <!-- Start Our Clients Content -->
-                <div class="our-client-content">
+                {{-- <div class="our-client-content"> --}}
                     {{-- <div class="ht-slick-slider slick-row-20"
                          data-slick='{"slidesToShow": 6, "autoplay": true, "prevArrow":"#client-prev", "nextArrow":"#client-next", "responsive":[{"breakpoint": 481,"settings":{"slidesToShow": 2}}, {"breakpoint": 801,"settings":{"slidesToShow": 3}}, {"breakpoint": 992,"settings":{"slidesToShow": 4}}]}'>
                         <!-- Start Single Client Logo Item -->
@@ -241,7 +240,7 @@
                         </div>
                         <!-- End Single Client Logo Item -->
                     </div> --}}
-                </div>
+                {{-- </div> --}}
                 <!-- End Our Clients Content -->
             </div>
         </div>

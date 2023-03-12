@@ -62,9 +62,7 @@
                                 </ul>
                             </li>
                             @endif
-                            @endforeach
-                          
-                           
+                            @endforeach   
                         </ul>
                     </nav>
                 </div>

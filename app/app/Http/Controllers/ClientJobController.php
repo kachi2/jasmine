@@ -6,6 +6,8 @@ use App\Mail\SendJobEmail;
 use App\Models\AppliedJob;
 use Illuminate\Support\Facades\Session;
 use App\Models\ClientJob;
+use  App\Models\Menu;
+
 use App\Models\Industry;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\RequestServiceMail;
@@ -22,7 +24,8 @@ class ClientJobController extends Controller
         $job->update(['views' => $job->views + 1]);
         return view('frontend.jobs_details', [
             'job' => $job,
-            'industries' => Industry::get()
+            'jobs' => ClientJob::get(),
+            'breadcrumbs' => Menu::where('slug', 'jobs')->first()
         ]);
     }
 
