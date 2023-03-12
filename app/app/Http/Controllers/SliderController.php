@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slider;
+use App\Models\SubMenu;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -16,7 +17,9 @@ class SliderController extends Controller
         ->with('breadcrumb', 'Website Settings');
     }
     public function CreateSlider(){
-        return view('admin.settings.create_sliders')
+        return view('admin.settings.create_sliders', [
+            'services' => SubMenu::where('menu_id', 2)->get(),
+        ])
         ->with('bheading', 'Website Settings')
         ->with('breadcrumb', 'Website Settings');
     }
@@ -26,6 +29,7 @@ class SliderController extends Controller
             'image' => 'required',
             'content' => 'required',
             'title' => 'required',
+            'link' => 'integer|required'
         ]);
 
        //dd(request()->file('images'));
@@ -33,18 +37,20 @@ class SliderController extends Controller
         if($request->file('image')){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
-            $fileName = time().'.'.$ext;
+            $fileName = time().'.'.$ext; 
             $image->move('images',$fileName);
         
     }
+    $link = route('subpages', encrypt($request->link));
         $data = [
             'image' =>   $fileName,
             'content' => $request->content,
             'title' =>  $request->title,
-            'status' => 1
+            'status' => 1,
+            'links' => $link
         ];
 
-      //  dd($data);
+       //dd($data);
         Slider::create($data);
         \Session::flash('alert', 'success');
         \Session::flash('alert', 'Slider Added Successfully');
