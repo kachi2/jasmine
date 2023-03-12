@@ -141,7 +141,7 @@
                         @forelse ($testimonials as  $testm)
                         <div class="testimonial-item testimonial-item--3">
                             <div class="testimonial-item__quote">
-                                <p style="color:#000; background:#595656" >{!! $testm->content !!}</p>
+                                <p style="color:#ffffff; background:#595656" >{!! $testm->content !!}</p>
                             </div>
                             <div class="testimonial-item__client">
                                 <figure class="testimonial-item__client__thumb">
