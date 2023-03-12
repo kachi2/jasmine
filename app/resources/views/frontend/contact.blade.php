@@ -13,7 +13,7 @@
             <div class="col-md-6 col-lg-8">
                 <nav class="page-header-breadcrumb text-center text-md-end">
                     <ul class="breadcrumb">
-                        <li><a href="">Home</a></li>
+                        <li><a href="{{route('index')}}">Home</a></li>
                         <li class="active"><a href="">Contact Us</a></li>
                     </ul>
                 </nav>

@@ -47,7 +47,7 @@ class PagesController extends Controller
         }
         if($menuId->has_child){
             $pages['pages'] = SubMenu::where(['menu_id' => $menuId->id, 'is_active' => 1])->get();
-            $pages['breadcrums'] = $pages['pages'][0]->name;
+            $pages['breadcrums'] = $pages['pages'][0]->Menu->name;
             return view('frontend.pages', $pages);
         }else{
             $pages = Page::where('menu_id', $menuId->id)->first();

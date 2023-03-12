@@ -13,7 +13,7 @@
             <div class="col-md-6 col-lg-8">
                 <nav class="page-header-breadcrumb text-center text-md-end">
                     <ul class="breadcrumb">
-                        <li><a href="">Home</a></li>
+                        <li><a href="{{route('index')}}">Home</a></li>
                         <li class="active"><a href="">Request a Service<</a></li>
                     </ul>
                 </nav>
@@ -126,6 +126,11 @@
                                         @endif
                             </form>
                         </div>
+                    </div>
+
+
+                    <div class="ml-5 p-2">
+                       <a href="{{route('pages', encrypt(5))}}"><img src="{{asset('/images/care.png')}}"> </a> 
                     </div>
                 </div>
             </div>

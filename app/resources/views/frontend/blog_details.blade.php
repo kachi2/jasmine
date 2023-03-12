@@ -13,9 +13,8 @@
             <div class="col-md-6 col-lg-8">
                 <nav class="page-header-breadcrumb text-center text-md-end">
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="active"><a href="index.html">Blog Details</a></li>
+                        <li><a href="{{route('index')}}">Home</a></li>
+                        <li class="active"><a href="">Blog Details</a></li>
                     </ul>
                 </nav>
             </div>
