@@ -29,7 +29,7 @@
                      </div>
  
                      <!-- LAYER NR. 3 -->
-                     <h1 class="tp-caption   tp-resizeme" id="slide-1-layer-3" data-x="['{{$slider->align}}','{{$slider->align}}','{{$slider->align}}','{{$slider->align}}']"
+                     <h1 style="color:#fff" class="tp-caption   tp-resizeme" id="slide-1-layer-3" data-x="['{{$slider->align}}','{{$slider->align}}','{{$slider->align}}','{{$slider->align}}']"
                          data-hoffset="['10','50','10','15']" data-y="['middle','middle','middle','middle']"
                          data-voffset="['0','0','-30','-30']" data-fontsize="['70','70','70','40']"
                          data-lineheight="['70','70','70','40']" data-width="none" data-height="none"
@@ -47,7 +47,7 @@
                           data-frames='[{"delay":500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"nothing"}]'
                           data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
                           data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                         {!! $slider->content !!}
+                        <span style="color:#fff">{!! $slider->content !!}</span> 
                      </div>
  
                      <!-- LAYER NR. 5 -->
