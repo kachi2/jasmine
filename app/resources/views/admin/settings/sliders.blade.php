@@ -5,7 +5,7 @@
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{route('admin.sliderCreate')}}" class="btn btn-secondary btn-block"  style="color:#fff">
+                            <a href="{{route('admin.sliderCreate')}}" class="badge badge-info p-2"  style="color:#fff">
                                 Add New Slider
                             </a>
                         </div>
@@ -18,9 +18,10 @@
                     <div class="card">
                         @forelse ($sliders as $ss )
                         <div class="card-body">
-                            <h6 class="card-title"> @if($ss->status == 1) <a href="{{route('admin.sliderDeactivate', encrypt($ss->id))}}" class="btn btn-info"> Deactivate </a> @else <a href="{{route('admin.sliderActivate', encrypt($ss->id))}}" class="btn btn-primary"> Activate </a>@endif
-                            <span style="float:right"> @if($ss->status == 1) <span class="badge badge-success"> Active  </span> @else <span class="badge badge-warning"> Inactive </span>@endif</span>
-                          &nbsp; &nbsp;  <a  href="{{route('admin.sliderDelete', encrypt($ss->id))}}" onclick="return confirm('Are you sure, you want to delete this slider')" class="btn btn-danger"> Delete Slider</a>
+                            <h6 class="card-title"> @if($ss->status == 1) <a href="{{route('admin.sliderDeactivate', encrypt($ss->id))}}" class="badge badge-warning "> Deactivate </a> @else <a href="{{route('admin.sliderActivate', encrypt($ss->id))}}" class="badge badge-success"> Activate </a>@endif
+                            <span style="float:right"> @if($ss->status == 1) <span class="badge badge-success"> Active  </span> @else <span class="badge badge-warning"> Inactive </span>@endif</span> 
+                            &nbsp; &nbsp;  <a  href="{{route('admin.sliderEdit', encrypt($ss->id))}}"  class=" badge badge-info "> Edit Slider</a>
+                          &nbsp; &nbsp;  <a  href="{{route('admin.sliderDelete', encrypt($ss->id))}}" onclick="return confirm('Are you sure, you want to delete this slider')" class="badge badge-danger"> Delete Slider</a>
                         </h6>
                             <div class="slider-for">
                                

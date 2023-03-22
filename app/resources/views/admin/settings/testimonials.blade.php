@@ -5,7 +5,7 @@
                 <div class="col-md-3 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{route('admin.settings.createTestimonial')}}" class="btn btn-secondary btn-block"  style="color:#fff">
+                            <a href="{{route('admin.settings.createTestimonial')}}" class="badge badge-info p-2"  style="color:#fff">
                                 Add New Testimonial
                             </a>
                         </div>
