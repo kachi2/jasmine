@@ -20,6 +20,7 @@ class ClientJobController extends Controller
 
     public function Details($id){
         $id = explode('-', $id);
+        dd($id);
         $job = ClientJob::where('id', $id[0])->first();
         $job->update(['views' => $job->views + 1]);
         return view('frontend.jobs_details', [

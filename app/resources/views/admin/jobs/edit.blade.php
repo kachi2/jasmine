@@ -77,7 +77,7 @@
                                                 <div class="form-group">
                                                     <input type="text" name="company" value="{{$job->company}}" class="form-control @error('company') is-invalid @enderror" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Enter Company">
-                                                   <small id="emailHelp" class="form-text text-muted">Enter job deadline
+                                                   <small id="emailHelp" class="form-text text-muted">Enter Company
                                                           </small>
                                                           @error('company')
                                                           <span class="invalid-feedback"> <small> *</small> </span>

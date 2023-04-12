@@ -94,49 +94,9 @@
                                                <hr>
                                                <p style="text-align: justify"> {!! $team->job_details !!} </p> <br> 
                                                 <br> 
-                                                @if(Session::has('message'))
-                                                <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
-                                                @endif
-                                                <div class="contact-form pt-3">
-                                                    <form id="contrm" action="{{route('apply.job', $team->id.'-'.$team->title)}}" method="post" enctype="multipart/form-data">
-                                                      @csrf
-                                                        <div class="contact-form-content">
-                                                            <div class="row mb-20">
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-input-item">
-                                                                        <input type="text" name="name"  value="{{old('name')}}" placeholder="Your Name*" required/>
-                                                                    </div>
-                                                                </div>
-                        
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-input-item">
-                                                                        <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone"/>
-                                                                    </div>
-                                                                </div>
-                        
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-input-item">
-                                                                        <input type="email" name="email" value="{{old('email')}}" placeholder="Your Email*"
-                                                                               required/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 pt-4"> Upload your CV
-                                                                    <div class="form-input-item">
-                                                                        <input type="file" name="image"  value="{{old('image')}}" id="image" placeholder="Your Email*"
-                                                                               required/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-input-item">
-                                                                <button type="submit" class="btn btn-primary">Join our Team</button>
-                                                            </div>
-                                                        </div>
-                        
-                                                        <!-- Show Message Notification -->
-                                                        <div class="form-message mt-1"></div>
-                                                    </form>
-                                                </div>
-                                                
+                                            <p>
+                                                <a href="{{route('job-details', $team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Apply with Us</a></span>
+                                            </p>
                                             </div>
                                           
                                         </div>
