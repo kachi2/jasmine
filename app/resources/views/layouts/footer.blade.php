@@ -32,8 +32,8 @@
                                 <ul class="list list-6">
                                     @foreach ($menus as $menu )
                                     <li > 
-                                        @if($menu->name == 'Home') <a style="color:#211d1d"  href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                                     </li>
+                                        @if($menu->name == 'Home') <a style="color:#fdf9f9"  href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                       </li>
                                     @endforeach
                                
                                 </ul>
