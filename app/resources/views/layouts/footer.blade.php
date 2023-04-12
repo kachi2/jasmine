@@ -31,7 +31,7 @@
                             <div class="widget-body">
                                 <ul class="list list-6">
                                     @foreach ($menus as $menu )
-                                    <li> <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> </li>
+                                    @if($menu->name == 'Home') <a style="color:#211d1d"  href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                                     @endforeach
                                
                                 </ul>
