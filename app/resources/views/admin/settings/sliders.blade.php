@@ -18,7 +18,7 @@
                     <div class="card">
                         @forelse ($sliders as $ss )
                         <div class="card-body">
-                            <h6 class="card-title"> @if($ss->status == 1) <a href="{{route('admin.sliderDeactivate', encrypt($ss->id))}}" class="badge badge-warning "> Deactivate </a> @else <a href="{{route('admin.sliderActivate', encrypt($ss->id))}}" class="badge badge-success"> Activate </a>@endif
+                        <h6 class="card-title"> @if($ss->status == 1) <a href="{{route('admin.sliderDeactivate', encrypt($ss->id))}}" class="badge badge-warning "> Deactivate </a> @else <a href="{{route('admin.sliderActivate', encrypt($ss->id))}}" class="badge badge-success"> Activate </a>@endif
                             <span style="float:right"> @if($ss->status == 1) <span class="badge badge-success"> Active  </span> @else <span class="badge badge-warning"> Inactive </span>@endif</span> 
                             &nbsp; &nbsp;  <a  href="{{route('admin.sliderEdit', encrypt($ss->id))}}"  class=" badge badge-info "> Edit Slider</a>
                           &nbsp; &nbsp;  <a  href="{{route('admin.sliderDelete', encrypt($ss->id))}}" onclick="return confirm('Are you sure, you want to delete this slider')" class="badge badge-danger"> Delete Slider</a>
@@ -29,17 +29,12 @@
                                     <img src="{{asset('images/'.$ss->image)}}" class="img-fluid" style="width:100%"
                                          alt="image">
                                 </div>
-                                
                             </div>
-                          
-                            
                             <div class="slider-nav">
                               
                                 <div class="slick-slide-item">
                                     <img src="{{asset('images/'.$ss->image)}}" class="img-fluid" alt="image">
                                 </div>
-                         
-                                
                             </div>
                             <div data-label="Slider Title Text" class="demo-code-preview">
                                 {{$ss->title}}
@@ -48,8 +43,7 @@
                                 {{$ss->content}}
                             </div>
                         </div>
-                        @empty
-                                    
+                        @empty         
                         @endforelse
                     </div>
                 </div>
