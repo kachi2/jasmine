@@ -66,7 +66,7 @@
                     </nav>
                 </div>
 
-                <div class="col-6 col-lg-2">
+                <div class="col-7 col-lg-2">
                     <!-- Start Header Action Area -->
                     <div class="header-action-area">
                         <ul class="action-buttons nav justify-content-end">
