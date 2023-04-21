@@ -73,19 +73,6 @@
                             <li class="d-lg-none">
                                 <button class="btn-canvas-open"><i class="pe-7s-menu"></i></button>
                             </li>
-                           {{-- <li>
-                                <a href="#" class="btn-search">
-                                    <i class="pe-7s-search"></i>
-                                    <i class="pe-7s-close"></i>
-                                </a>
-                                <div class="header-search-box">
-                                    <form action="#">
-                                        <div class="search-box-content">
-                                            <input type="search" placeholder="type here and hit enter"/>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li> --}}
                         </ul>
                     </div>
                     <!-- End Header Action Area -->
