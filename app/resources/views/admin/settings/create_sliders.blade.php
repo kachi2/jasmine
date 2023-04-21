@@ -94,7 +94,7 @@
                                             <div class="text-truncate small"></div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <textarea type="text" maxlength="100" name="content"   placeholder="Enter Slider content" value="{{old('content')}}" class="form-control @error('content') is-invalid @enderror"  >{{old('content')}} </textarea>
+                                                    <textarea type="text" name="content"   placeholder="Enter Slider content" value="{{old('content')}}" class="form-control @error('content') is-invalid @enderror"  >{{old('content')}} </textarea>
                                                     <small id="emailHelp" class="form-text text-muted">Slider Content
                                                     </small>
                                                     @error('content')
