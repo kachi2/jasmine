@@ -26,7 +26,7 @@ class ClientJobController extends Controller
         return view('frontend.jobs_details', [
             'job' => $job,
             'jobs' => ClientJob::get(),
-            'breadcrumbs' => Menu::where('slug', 'jobs')->first()
+            'breadcrums' => Menu::where('slug', 'jobs')->first(),
         ]);
     }
 
@@ -39,7 +39,7 @@ class ClientJobController extends Controller
         return view('frontend.join', [
             'job' => $job,
             'jobs' => ClientJob::get(),
-            'breadcrumbs' => Menu::where('slug', 'jobs')->first()
+            'breadcrums' => Menu::where('slug', 'jobs')->first()
         ]);
     }
 

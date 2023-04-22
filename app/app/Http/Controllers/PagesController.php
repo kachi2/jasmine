@@ -29,7 +29,7 @@ class PagesController extends Controller
             return view('frontend.jobs',[
                 'jobs' => ClientJob::where('status', '=', 1)->where('id', '!=', 9)->latest()->get(),
                 'team' => ClientJob::where('id', 9)->first(),
-                'breadcrumbs' => Menu::where('slug', 'jobs')->first(),
+                'breadcrums' => Menu::where('slug', 'jobs')->first(),
                 'industries' => Industry::get(),
                 
             ]);

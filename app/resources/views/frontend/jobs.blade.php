@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('contents')
-@if(isset($breadcrumbs))
+@if(isset($breadcrums))
 
-<div class="page-header-area" style="background: #ddd url('{{asset('/images/'.$breadcrumbs->image)}}') no-repeat center">
+<div class="page-header-area" style="background: #ddd url('{{asset('/images/'.$breadcrums->image)}}') no-repeat center">
    @else 
    <div class="page-header-area" style="background: #ddd url('{{asset('/images')}}') no-repeat center">
    @endif
