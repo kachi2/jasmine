@@ -11,6 +11,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManagePagesController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqContoller;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SliderController;
@@ -121,6 +122,15 @@ Route::middleware('auth')->group(function(){
         Route::get('/website/faq/delete/{id}', 'Delete')->name('faqDelete');
     });
 
+    Route::controller(CategoryController::class)->group(function(){
+        Route::get('/website/category/index', 'Index')->name('category.index');
+        Route::get('/website/category/create', 'Create')->name('categoryCreate');
+        Route::post('/website/category/store', 'Store')->name('categoryStore');
+        Route::get('/website/category/edit/{id}', 'Edit')->name('categoryEdit');
+        Route::post('/website/category/update/{id}', 'Update')->name('categoryUpdate');
+        Route::get('/website/category/delete/{id}', 'Delete')->name('categoryDelete');
+    });
+
 });
 });
 
@@ -139,7 +149,7 @@ Route::post('/contactus/request', 'ContactEmails')->name('contact-email');
 Route::post('/jobs/apply/{id}', [ClientJobController::class, 'ApplyJob'])->name('apply.job');
 Route::get('/job/details/{id}',  [ClientJobController::class, 'Details'])->name('job-details');
 Route::post('/request/services/',  [ClientJobController::class, 'RequestService'])->name('request-service');
-Route::get('/join/jasmine/{id}',  [ClientJobController::class, 'JoinOurTeam'])->name('join.jasmine');
+Route::get('/join/jasmine/{id}',  [ClientJobController::class, 'JoinOurTeam'])->name('jasmine.team');
 Route::post('/join/team/{id}',  [ClientJobController::class, 'JoinTeam'])->name('join.team');
 
 require __DIR__.'/auth.php';
