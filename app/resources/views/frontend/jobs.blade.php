@@ -53,7 +53,7 @@
                                                     <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>   <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>   <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> ₦{{$job->salary_range}}</span> <br>
                                                    <span> Job Function: {{$job->industry->name}}</span> <br>
                                                    <hr>
-                                                   <span> {!! substr($job->job_details,0,200) !!} <br> <a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="btn-primary btn-sm"> Apply for this Job</a></span>
+                                                   <span> {!! substr($job->job_details,0,200) !!} <br> <a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="badge bg-primary"> Apply for this Job</a></span>
                                                 </div>
                                               
                                             </div>
@@ -92,10 +92,11 @@
                                                <p style="text-align: justify"> {!! $team->job_details !!} </p> <br> 
                                                 <br> 
                                             <p>
-                                                {{-- <a href="{{route('join.jasmine',$team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Apply with Us</a></span> --}}
+                                             <a href="{{route('join.jasmine',$team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Join our Team</a></span>
+                                            
                                             </p>
+                                            <div class="p-4"></div>
                                             </div>
-                                          
                                         </div>
                                     </div>
                                  
