@@ -20,7 +20,7 @@ class ClientJobController extends Controller
 
     public function Details($id){
         $id = explode('-', $id);
-        dd($id);
+     //   dd($id);
         $job = ClientJob::where('id', $id[0])->first();
         $job->update(['views' => $job->views + 1]);
         return view('frontend.jobs_details', [
@@ -30,6 +30,18 @@ class ClientJobController extends Controller
         ]);
     }
 
+
+    public function JoinUs($id){
+        $id = explode('-', $id);
+     //   dd($id);
+        $job = ClientJob::where('id', $id[0])->first();
+        $job->update(['views' => $job->views + 1]);
+        return view('frontend.join', [
+            'job' => $job,
+            'jobs' => ClientJob::get(),
+            'breadcrumbs' => Menu::where('slug', 'jobs')->first()
+        ]);
+    }
 
     public function ApplyJob(Request $request, $id){
     $id = explode('-', $id);
@@ -89,6 +101,66 @@ class ClientJobController extends Controller
     return back()->with('Job Applied successfully');
      
     }
+
+    public function JoinTeam(Request $request, $id){
+        $id = explode('-', $id);
+            $jobAp = ClientJob::where('id',$id[0])->first();
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'image' => 'required',
+            ]);
+            $doc =  $request->file('image');
+          // $ext = $doc->getClientOriginalExtension();
+           $name = $doc->getClientOriginalName();
+           $fileName = \pathinfo($name, PATHINFO_FILENAME);
+           $ext = pathinfo($name, PATHINFO_EXTENSION);
+           $allow = ['pdf', 'docx', 'PDF', 'docx'];
+           if(!in_array($ext, $allow)){
+            Session::flash('message', 'File Type not accepted, Only PDF and DOC files are accepts');
+            Session::flash('alert', 'danger');
+            return back()->withInput();
+           } 
+           $filename = $fileName.'.'.$ext;
+           $doc->move('doc', $filename);
+    
+           $message = 'Dear '.$request->name . '<br> Thank you for applying to the post of '.$request->job_type .'<br> We will get back to you. 
+           <br>' ;
+            
+            $data = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'cv' => $filename,
+                'client_jobs_id' => $jobAp->id,
+                'message' => $message,
+                'subject' => $jobAp->title. ' '. 'Application',
+                'job_info' => 'Applied for ' .$request->job_type
+            ]; 
+          
+           $check = AppliedJob::where(['email' => $request->email, 'client_jobs_id' => $jobAp->id])->first();
+           if($check){
+            Session::flash('message', 'You have previously applied for this job, our team will contact you as soon as possible');
+            Session::flash('alert', 'danger');
+            return back()->withInput();
+           }
+           $sm =  AppliedJob::create($data);
+           if($sm) {
+             $jobAp->update([
+            'applicants' => $jobAp->applicants + 1, 
+           ]);
+    
+           }
+           // Mail::to('mikkynoble@gmail.com')->send(new SendJobEmail($data));
+            Mail::to($request->email)->send(new SendClientEmail($data));
+           
+            Session::flash('message', 'Application completed successfully');
+            Session::flash('alert', 'success');
+            return back();
+        return back()->with('Job Applied successfully');
+         
+        }
 
     public function RequestService(Request $request){
 

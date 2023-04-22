@@ -79,11 +79,8 @@
                         </div>
 
                         <div class="about-awards-content mt-46 mt-sm-36">
-                          
-
                             <div class="partner-content-wrap mt-50 mt-sm-40">
                                 <div class="row mtm-30">
-                              
                                     <div class="col-md-12 p-3 mb-3" style="border: 1px solid #b2b2b260; border-radius:10px">
                                         <div class="discover-item">
                                             <div class="discover-item__thumb">
@@ -95,7 +92,7 @@
                                                <p style="text-align: justify"> {!! $team->job_details !!} </p> <br> 
                                                 <br> 
                                             <p>
-                                                <a href="{{route('job-details', $team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Apply with Us</a></span>
+                                                <a href="{{route('join.us', $team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Apply with Us</a></span>
                                             </p>
                                             </div>
                                           
