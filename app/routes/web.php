@@ -141,5 +141,4 @@ Route::get('/job/details/{id}',  [ClientJobController::class, 'Details'])->name(
 Route::post('/request/services/',  [ClientJobController::class, 'RequestService'])->name('request-service');
 Route::post('/join/team/{id}',  [ClientJobController::class, 'JoinTeam'])->name('join.team');
 Route::get('/join/us/{id}',  [ClientJobController::class, 'JoinUs'])->name('join.us');
-
 require __DIR__.'/auth.php';
