@@ -92,7 +92,7 @@
                                                <p style="text-align: justify"> {!! $team->job_details !!} </p> <br> 
                                                 <br> 
                                             <p>
-                                             <a href="{{route('joinJasmine',$team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Join our Team</a>
+                                             <a href="{{route('job-details',$team->id.'-'.$team->title)}}" class="btn-primary btn-lg"> Join our Team</a>
                                             
                                             </p>
                                             <div class="p-4"></div>
