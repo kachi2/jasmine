@@ -11,9 +11,9 @@
                             <p>{{$settings->about}}.</p>
                             <div class="social-icons social-icons--two mt-22">
                                 <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                                <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
+                                {{-- <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a> --}}
                                 <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a>
-                                {{-- <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a> --}}
+                                <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
