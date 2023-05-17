@@ -31,9 +31,8 @@ class ClientJobController extends Controller
     }
 
 
-    public function JoinOurTeam($id){
+    public function TeamRequestJoin($id){
         $id = explode('-', $id);
-        dd($id);
         $job = ClientJob::where('id', $id[0])->first();
         $job->update(['views' => $job->views + 1]);
         return view('frontend.join', [
