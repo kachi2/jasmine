@@ -38,13 +38,13 @@
                                 <!-- Start Single News Item -->
                                 <div class="news-item">
                                     <figure class="news-item__thumb">
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}"><img src="{{asset('/assets/img/news/post-01.jpg')}}" alt="Post"/></a>
+                                        <a href="#"><img src="{{asset('/assets/img/news/post-01.jpg')}}" alt="Post"/></a>
                                     </figure>
 
                                     <div class="news-item__info">
-                                        <h2><a href="{{route('blog.details', encrypt($blog->id))}}">{{$blog->title}}</a></h2>
+                                        <h2><a href="#">{{$blog->title}}</a></h2>
                                         <div class="post-meta">
-                                            <a href="{{route('blog.details', encrypt($blog->id))}}" class="post-date"><i class="fa fa-clock-o"></i>
+                                            <a href="#" class="post-date"><i class="fa fa-clock-o"></i>
                                                 {{$blog->created_at->format('d/m/y')}}</a>
                                         </div>
                                         <p style="color:#fff">{!! substr($blog->contents, 0, 500) !!}
