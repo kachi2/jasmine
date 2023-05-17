@@ -149,7 +149,7 @@ Route::post('/contactus/request', 'ContactEmails')->name('contact-email');
 Route::post('/jobs/apply/{id}', [ClientJobController::class, 'ApplyJob'])->name('apply.job');
 Route::get('/job/details/{id}',  [ClientJobController::class, 'Details'])->name('job-details');
 Route::post('/request/services/',  [ClientJobController::class, 'RequestService'])->name('request-service');
-Route::get('/ourteam/{id}',  [ClientJobController::class, 'TeamRequestJoin'])->name('detail-jobs');
+Route::get('/ourteam/{id}',  [ClientJobController::class, 'Details'])->name('detail-jobs');
 // Route::get('/join/jasmines/{id}',  [ClientJobController::class, 'JoinOurTeam'])->name('joinJasmine');
 Route::post('/join/team/{id}',  [ClientJobController::class, 'JoinTeam'])->name('join.team');
 
