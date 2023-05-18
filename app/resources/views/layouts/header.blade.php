@@ -40,8 +40,8 @@
             <div class="row align-items-center">
                 <div class="col-6 col-lg-2">
                     <!-- Start Logo Area -->
-                    <div class="logo-area">
-                        <a href="{{route('index')}}"><img src="{{asset('/assets/logo.png')}}"  alt="Logo"/></a>
+                    <div class="logo-ara">
+                        <a href="{{route('index')}}"><img src="{{asset('/assets/logo.png')}}"  width="150px" alt="Logo"/></a>
                     </div>
                     <!-- End Logo Area -->
                 </div>
