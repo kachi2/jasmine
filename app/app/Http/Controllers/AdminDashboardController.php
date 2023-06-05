@@ -17,7 +17,7 @@ class AdminDashboardController extends Controller
             'applicant' => AppliedJob::latest()->get(),
             'blogs' =>  Blog::get(),
             'jobs' => ClientJob::get(),
-            'logins' => AdminActivity::get()
+            'logins' => AdminActivity::take(5)->latest()->get()
         ])
         ->with('bheading', 'Index')
         ->with('breadcrumb', 'Index');
