@@ -23,8 +23,8 @@
                     <div class="pre-header-right text-center text-md-end">
                         <div class="social-icons">
                             <a  target="_blank" href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            {{-- <a target="_blank"  href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a> --}}
-                            <a target="_blank"  href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a>
+                            <a target="_blank"  href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
+                            {{-- <a target="_blank"  href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
                             <a target="_blank" href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
