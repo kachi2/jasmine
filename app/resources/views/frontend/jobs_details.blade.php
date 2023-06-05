@@ -38,7 +38,9 @@
                         <div class="sidebar-body">
                             <div class="partner-content-wrap mt-50 mt-sm-40">
                                 <div class="row mtm-30">
+                                   
                                     @forelse ($jobs as $jo )
+                                    
                                     <div class="col-md-12 p-3 mb-3" style="border: 1px solid #b2b2b260; border-radius:10px">
                                         <div class="discover-item">
                                             <div class="discover-item__thumb">
@@ -71,7 +73,7 @@
                 <div class="col-lg-8 order-0">
                     <div class="about-discover-content mb-md-22 mb-sm-22">
                         <div class="about-discover-head">
-                            <h4>{{$job->title}}</h4>
+                            <h4></h4>
                           
                         </div>
                         <div class="about-awards-content mt-46 mt-sm-36">

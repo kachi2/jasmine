@@ -72,23 +72,24 @@
                 
                                                         <div class="col-lg-4">
                                                             <div class="form-input-item">
-                                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone"/>
+                                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone*" required/>
                                                             </div>
                                                         </div>
                 
                                                         <div class="col-lg-4">
                                                             <div class="form-input-item">
-                                                                <input type="email" name="email" value="{{old('email')}}" placeholder="Your Email*"
-                                                                       required/>
+                                                                <input type="email" name="email" value="{{old('email')}}" placeholder="Your Email*" required/>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 pt-4">
                                                             <div class="form-input-item">
-                                                                <input type="file"  name="image"  value="{{old('image')}}" id="image" placeholder="*"
-                                                                       required/>
+                                                                <input type="file"  name="image"  value="{{old('image')}}" id="image" placeholder="*" required/>
                                                                 <label for="image"> Upload CV </label>
                                                             </div>
                                                         </div>
+                                                        <p> @php echo captcha_img() @endphp </p>
+                                                        <p><input type="text" placeholder="Enter captcha" name="captcha" required>
+                                                         </p>
                                                     </div>
                                                     <div class="form-input-item">
                                                         <button type="submit" class="btn btn-primary">Apply for this job</button>

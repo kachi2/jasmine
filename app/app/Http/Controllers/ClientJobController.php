@@ -20,12 +20,11 @@ class ClientJobController extends Controller
 
     public function Details($id){
         $id = explode('-', $id);
-     //   dd($id);
         $job = ClientJob::where('id', $id[0])->first();
         $job->update(['views' => $job->views + 1]);
         return view('frontend.jobs_details', [
             'job' => $job,
-            'jobs' => ClientJob::get(),
+            'jobs' => ClientJob::where('title', '!=', 'Join our Team')->get(),
             'breadcrums' => Menu::where('slug', 'jobs')->first(),
         ]);
     }
@@ -45,12 +44,22 @@ class ClientJobController extends Controller
     public function ApplyJob(Request $request, $id){
     $id = explode('-', $id);
         $jobAp = ClientJob::where('id',$id[0])->first();
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'image' => 'required',
+            'captcha' => 'required',
         ]);
+
+       $capt = captcha_check($request->captcha);
+        if(!$capt){
+            Session::flash('message', 'Captcha does not match, try again');
+            Session::flash('alert', 'danger');
+            return back()->withInput($request->all());
+           
+        }
         $doc =  $request->file('image');
       // $ext = $doc->getClientOriginalExtension();
        $name = $doc->getClientOriginalName();
@@ -109,7 +118,17 @@ class ClientJobController extends Controller
                 'email' => 'required',
                 'phone' => 'required',
                 'image' => 'required',
+                'captcha' => 'required',
             ]);
+    
+           $capt = captcha_check($request->captcha);
+
+            if(!$capt){
+                Session::flash('message', 'Captcha does not match, try again');
+                Session::flash('alert', 'danger');
+                return back()->withInput($request->all());
+               
+            }
             $doc =  $request->file('image');
           // $ext = $doc->getClientOriginalExtension();
            $name = $doc->getClientOriginalName();

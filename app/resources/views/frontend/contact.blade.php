@@ -59,7 +59,10 @@
                         </div>
 
                         <div class="contact-form">
-                            <form id="contact-form" action="{{route('contact-email')}}" method="post">
+                            @if(Session::has('message'))
+                            <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
+                            @endif
+                            <form  action="{{route('contact-email')}}" method="post">
                                 @csrf
                                 <div class="contact-form-content">
                                     <div class="row mb-20">
@@ -71,26 +74,25 @@
 
                                         <div class="col-lg-4">
                                             <div class="form-input-item">
-                                                <input type="text" name="phone" placeholder="Your Phone"/>
+                                                <input type="text" name="phone" placeholder="Your Phone *" required/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
 
                                         <div class="col-lg-4">
                                             <div class="form-input-item">
-                                                <input type="email" name="email" placeholder="Your Email*"
-                                                       required/>
+                                                <input type="email" name="email" placeholder="Your Email*" required/>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-input-item">
                                         <textarea name="message" id="con_message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required></textarea>
+                                                  placeholder="Write your Message*" required>{{old('con_message')}}</textarea>
                                     </div>
 
                                     <p> @php echo captcha_img() @endphp </p>
-                                    <p><input type="text" placeholder="Enter captcha" name="captcha">
+                                    <p><input type="text" placeholder="Enter captcha" name="captcha" required>
                                      </p>
 
                                     <div class="form-input-item">

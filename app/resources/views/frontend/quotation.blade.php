@@ -51,7 +51,7 @@
 
                                         <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone" required/>
+                                                <input type="text" name="phone" value="{{old('phone')}}" placeholder="Your Phone*" required/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
@@ -65,7 +65,7 @@
                                       
                                             <div class="col-lg-3">
                                                 <div class="form-input-item">
-                                                    <input type="text" name="address" value="{{old('address')}}" placeholder="Your Address*" required/>
+                                                    <input type="text" name="address" value="{{old('address')}}" placeholder="Your Address" />
                                                 </div>
                                             </div>
 
@@ -73,7 +73,7 @@
                                     <div class="row mb-20">
                                     <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="city" placeholder="Your City"/>
+                                                <input type="text" name="city" placeholder="Your City*"/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
-                                            <div class="form-input-item">
+                                            <div class="form-input-item" > 
                                                 
                                                 <input type="date" name="end_date" value="{{old('end_date')}}" placeholder="End date of our service" />
                                                        End date of our service
@@ -105,7 +105,7 @@
                                         @foreach ($services as $service )
                                            
                                         <div class="col-lg-2">
-                                            <div class="form-input-item">
+                                            <div class="form-input-item" style="text-align: center">
                                               <input type="checkbox"  value="{{$service->name}}" name="services[]" placeholder="" /> {{$service->name}} 
                                             </div>
                                         </div>
@@ -117,7 +117,8 @@
 
                                     <div class="form-input-item">
                                         <textarea name="message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required> {{old('message')}}</textarea>
+                                                  placeholder="ENTER MORE INFORMATION*" required>{{old('message')}}</textarea>
+                                        <small>MORE INFORMATION </small>
                                     </div>
 
                                     <p> @php echo captcha_img() @endphp </p>
