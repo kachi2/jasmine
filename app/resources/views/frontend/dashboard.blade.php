@@ -44,13 +44,11 @@
             @forelse ($services as $service)
             
             <div class="col-sm-6 col-lg-4">
-          
                 <!-- Start Single Service Item -->
                 <div class="service-item service-item--three white-bg">
                     {{-- <div class="service-item__icon">
                         <i class=""><img  style="border-radius: 6px" src="{{asset('images/'.$service->image)}}" width="50px"></i>
                     </div> --}}
-
                     <div class="service-item__info">
                         <i class=""><img  style="border-radius: 2px" src="{{asset('images/'.$service->image)}}" width="50px"></i>
                         <h2><a href="{{route('subpages', encrypt($service->id))}}">{{$service->name}}</a></h2>
@@ -108,9 +106,7 @@
                                     </div>
                                 </div>
                             </div>
-
                             @empty
-
                             @endforelse
                            
                             <!-- End Single Testimonial Item -->

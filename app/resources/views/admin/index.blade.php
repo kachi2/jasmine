@@ -43,7 +43,7 @@
                             @forelse ($logins as $login)
                             <tr>
                                 <td> @php $details = json_decode(file_get_contents("http://ipinfo.io/$login->login_ip/json"));
-                                    //  echo $details->city.", ".$details->country;
+                                     echo $details->city.", ".$details->country;
                                     @endphp
                                     </td>
                                 <td class="text-center">{{$login->login_ip}}</td>
