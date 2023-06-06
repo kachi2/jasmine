@@ -22,7 +22,7 @@
 <body>
     <!-- App styles  -->
 <div class="preloader">
-    <div class="preloader-icon"></div>
+    {{-- <div class="preloader-icon"></div> --}}
 </div>
 @include('admin.layouts.header')
 <div id="main">
