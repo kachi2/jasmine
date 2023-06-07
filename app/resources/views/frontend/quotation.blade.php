@@ -134,11 +134,7 @@
                                         @enderror --}}
                                     </p>
 
-                                    <p> @php echo captcha_img() @endphp </p>
-                                    <p><input type="text" placeholder="Enter captcha" name="captcha">
-                                     </p>
-
-                                     
+                                    
                                    <div class="p-2"></div>
                                     <div class="form-input-item">
                                         <button type="submit" class="btn btn-brand">Send Message</button>
