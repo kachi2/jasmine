@@ -50,7 +50,6 @@ class ClientJobController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'image' => 'required',
-            'captcha' => 'required',
         ]);
 
        $capt = captcha_check($request->captcha);
@@ -59,6 +58,12 @@ class ClientJobController extends Controller
             Session::flash('alert', 'danger');
             return back()->withInput($request->all());
            
+        }
+        $check = AppliedJob::where(['email' => $request->email, 'client_jobs_id' => $jobAp->id])->first();
+        if($check){
+         Session::flash('message', 'You have previously applied for this job, our team will contact you as soon as possible');
+         Session::flash('alert', 'danger');
+         return back()->withInput();
         }
         $doc =  $request->file('image');
       // $ext = $doc->getClientOriginalExtension();
@@ -74,9 +79,9 @@ class ClientJobController extends Controller
        $filename = $fileName.'.'.$ext;
        $doc->move('doc', $filename);
 
-       $message = 'We have receieved your application for the postition of ' . $jobAp->title .' job position at '.$jobAp->company.' . We appreciate your interest in this position 
-        Our team will contact you for more information.';
-        
+    
+       $message = 'Dear Admin, You have received a new job application for '.$jobAp->title .' Please check the admin dashboard for more details'; 
+            
         $data = [
             'name' => $request->name,
             'email' => $request->email,
@@ -84,15 +89,11 @@ class ClientJobController extends Controller
             'cv' => $filename,
             'client_jobs_id' => $jobAp->id,
             'message' => $message,
-            'subject' => $jobAp->title. ' '. 'Application'
+            'subject' => 'Job Application For '.$jobAp->title,
+            'job_info' => 'Candidate applied for '.$jobAp->title
         ];
       
-       $check = AppliedJob::where(['email' => $request->email, 'client_jobs_id' => $jobAp->id])->first();
-       if($check){
-        Session::flash('message', 'You have previously applied for this job, our team will contact you as soon as possible');
-        Session::flash('alert', 'danger');
-        return back()->withInput();
-       }
+      
        $sm =  AppliedJob::create($data);
        if($sm) {
          $jobAp->update([
@@ -100,8 +101,8 @@ class ClientJobController extends Controller
        ]);
 
        }
-      //  Mail::to('support@jasmine.com.ng')->send(new SendJobEmail($data));
-        Mail::to($request->email)->send(new SendClientEmail($data));
+       Mail::to('jobs@greatjasmine.com.ng')->send(new SendJobEmail($data));
+       // Mail::to($request->email)->send(new SendClientEmail($data));
        
         Session::flash('message', 'Application completed successfully');
         Session::flash('alert', 'success');
@@ -118,7 +119,6 @@ class ClientJobController extends Controller
                 'email' => 'required',
                 'phone' => 'required',
                 'image' => 'required',
-                'captcha' => 'required',
             ]);
     
            $capt = captcha_check($request->captcha);
@@ -129,6 +129,13 @@ class ClientJobController extends Controller
                 return back()->withInput($request->all());
                
             }
+
+            $check = AppliedJob::where(['email' => $request->email, 'client_jobs_id' => $jobAp->id])->first();
+           if($check){
+            Session::flash('message', 'You have previously applied for this job, our team will contact you as soon as possible');
+            Session::flash('alert', 'danger');
+            return back()->withInput();
+           }
             $doc =  $request->file('image');
           // $ext = $doc->getClientOriginalExtension();
            $name = $doc->getClientOriginalName();
@@ -143,8 +150,7 @@ class ClientJobController extends Controller
            $filename = $fileName.'.'.$ext;
            $doc->move('doc', $filename);
     
-           $message = 'Dear '.$request->name . '<br> Thank you for applying to the post of '.$request->job_type .'<br> We will get back to you. 
-           <br>' ;
+           $message = 'Dear Admin, You have received a new job application for '.$jobAp->title .' Please check the admin dashboard for more details'; 
             
             $data = [
                 'name' => $request->name,
@@ -157,12 +163,7 @@ class ClientJobController extends Controller
                 'job_info' => 'Applied for ' .$request->job_type
             ]; 
           
-           $check = AppliedJob::where(['email' => $request->email, 'client_jobs_id' => $jobAp->id])->first();
-           if($check){
-            Session::flash('message', 'You have previously applied for this job, our team will contact you as soon as possible');
-            Session::flash('alert', 'danger');
-            return back()->withInput();
-           }
+           
            $sm =  AppliedJob::create($data);
            if($sm) {
              $jobAp->update([
@@ -170,8 +171,8 @@ class ClientJobController extends Controller
            ]);
     
            }
-           // Mail::to('mikkynoble@gmail.com')->send(new SendJobEmail($data));
-            Mail::to($request->email)->send(new SendClientEmail($data));
+           Mail::to('jobs@greatjasmine.com.ng')->send(new SendJobEmail($data));
+            // Mail::to($request->email)->send(new SendClientEmail($data));
            
             Session::flash('message', 'Application completed successfully');
             Session::flash('alert', 'success');
@@ -208,11 +209,12 @@ class ClientJobController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'start_date' => $request->start_date,
-            'end_date' => $request->date,
-            'services' => $request->services
+            'end_date' => $request->end_date,
+            'services' => $request->services,
+            'message' => $request->message
         ];
 
-        Mail::to('mikkynoble@gmail.com')->send(new RequestServiceMail($data));
+        Mail::to('contact@greatjasmine.com.ng')->send(new RequestServiceMail($data));
         Session::flash('message', 'Request Sent successfully');
         Session::flash('alert', 'success');
         return back();

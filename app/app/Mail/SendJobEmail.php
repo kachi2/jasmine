@@ -1,25 +1,28 @@
 <?php
 
 namespace App\Mail;
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class SendJobEmail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    private $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
+
     {
+        $this->data = $data;
         //
     }
 
@@ -28,10 +31,11 @@ class SendJobEmail extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function envelope()
+   public function envelope()
     {
         return new Envelope(
-            subject: 'Send Job Email',
+            subject: $this->data['subject'],
+            from: new Address('noreply@greatjasmine.com.ng', 'Greatjasmine'),
         );
     }
 
@@ -43,10 +47,12 @@ class SendJobEmail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.clientJobEmail',
+            with:[
+                'data' => $this->data,
+            ] 
         );
     }
-
     /**
      * Get the attachments for the message.
      *

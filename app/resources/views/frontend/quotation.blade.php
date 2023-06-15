@@ -38,8 +38,12 @@
                             <h2>Request a Service</h2>
                         </div>
 
+                        @if(Session::has('message'))
+                        <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
+                        @endif
+
                         <div class="contact-form">
-                            <form id="contact-fom" action="{{route('request-service')}}" method="post">
+                            <form  action="{{route('request-service')}}" method="post">
                                 @csrf
                                 <div class="contact-form-content">
                                     <div class="row mb-20">
@@ -73,7 +77,7 @@
                                     <div class="row mb-20">
                                     <div class="col-lg-3">
                                             <div class="form-input-item">
-                                                <input type="text" name="city" placeholder="Your City*"/>
+                                                <input type="text" value="{{old('city')}}"  name="city" placeholder="Your City*"/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
@@ -122,13 +126,13 @@
                                     </div>
 
                                     <p> @php echo captcha_img() @endphp </p>
-                                   <p><input type="text" placeholder="Enter captcha" name="captcha">
+                                   <p><input type="text" placeholder="Enter captcha" name="captcha" required>
                                     </p>
 
                                     <p class="p-1">
-                                        @if(Session::has('message'))
+                                        {{-- @if(Session::has('message'))
                                         <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
-                                        @endif
+                                        @endif --}}
                                         {{-- @error('captcha')
                                         <span class="alert alert-danger"> {{$message}}</span>
                                         @enderror --}}

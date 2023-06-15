@@ -134,8 +134,9 @@ class PagesController extends Controller
             'email' =>  $request->email,
             'message' => $request->message
         ];
-
-        Mail::to('support@greatjasmine.com')->send(new ContactUs($data));
+        Session::flash('message', 'Request sent Successfully');
+        Session::flash('alert', 'success');
+        Mail::to('contact@greatjasmine.com.ng')->send(new ContactUs($data));
         return back();
     }
 }

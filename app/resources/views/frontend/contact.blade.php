@@ -68,27 +68,27 @@
                                     <div class="row mb-20">
                                         <div class="col-lg-4">
                                             <div class="form-input-item">
-                                                <input type="text" name="name" placeholder="Your Name*" required/>
+                                                <input type="text" value="{{old('name')}}" name="name" placeholder="Your Name*" required/>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-input-item">
-                                                <input type="text" name="phone" placeholder="Your Phone *" required/>
+                                                <input type="text" value="{{old('phone')}}"  name="phone" placeholder="Your Phone *" required/>
                                             </div>
                                         </div>
                                         <input type="hidden" name="key" value="{{$key}}"> 
 
                                         <div class="col-lg-4">
                                             <div class="form-input-item">
-                                                <input type="email" name="email" placeholder="Your Email*" required/>
+                                                <input type="email" value="{{old('email')}}"  name="email" placeholder="Your Email*" required/>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-input-item">
-                                        <textarea name="message" id="con_message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required>{{old('con_message')}}</textarea>
+                                        <textarea name="message" cols="30" rows="8"
+                                                  placeholder="Write your Message*" required>{{old('message')}}</textarea>
                                     </div>
 
                                     <p> @php echo captcha_img() @endphp </p>
