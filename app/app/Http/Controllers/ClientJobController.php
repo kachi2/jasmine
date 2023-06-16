@@ -101,7 +101,7 @@ class ClientJobController extends Controller
        ]);
 
        }
-       Mail::to('jobs@greatjasmine.com.ng')->send(new SendJobEmail($data));
+       Mail::to('info@greatjasmine.com.ng')->send(new SendJobEmail($data));
        // Mail::to($request->email)->send(new SendClientEmail($data));
        
         Session::flash('message', 'Application completed successfully');
@@ -171,7 +171,7 @@ class ClientJobController extends Controller
            ]);
     
            }
-           Mail::to('jobs@greatjasmine.com.ng')->send(new SendJobEmail($data));
+           Mail::to('info@greatjasmine.com.ng')->send(new SendJobEmail($data));
             // Mail::to($request->email)->send(new SendClientEmail($data));
            
             Session::flash('message', 'Application completed successfully');
