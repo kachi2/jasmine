@@ -159,3 +159,34 @@
 
 
 @endsection
+
+@section('script')
+<script>
+
+$('.clockpicker-example').clockpicker({
+    autoclose: true
+});
+
+$('input[name="audition_date"]').daterangepicker({
+  singleDatePicker: true,
+  showDropdowns: true
+});
+
+let message = {!! json_encode(Session::get('message')) !!};
+let msg = {!! json_encode(Session::get('alert')) !!};
+//alert(msg);
+toastr.options = {
+        timeOut: 3000,
+        progressBar: true,
+        showMethod: "slideDown",
+        hideMethod: "slideUp",
+        showDuration: 200,
+        hideDuration: 200
+    };
+if(message != null && msg == 'success'){
+toastr.success(message);
+}else if(message != null && msg == 'error'){
+    toastr.error(message);
+}
+</script>
+@endsection
