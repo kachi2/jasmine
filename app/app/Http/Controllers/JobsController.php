@@ -33,12 +33,11 @@ class JobsController extends Controller
             'title' => 'required',
             'contents' => 'required',
             'company' => 'required',
-            'industry_id' => 'required',
+            'industry_id' => 'required|integer',
             'location' => 'required',
             'daterangepicker' => 'required',
             'salary_range' => 'required',
             'job_type' => 'required',
-            'image' => 'required',
         ]);
         $data = [
             'title' => $request->title,
