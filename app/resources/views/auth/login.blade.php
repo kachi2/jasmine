@@ -38,7 +38,7 @@
   <form class="login100-form validate-form" action="{{route('login')}}" method="POST">
                                          @csrf
         <div class="form-group">
-            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="email" required autofocus>
+            <input type="text" value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="email" required autofocus>
          @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
