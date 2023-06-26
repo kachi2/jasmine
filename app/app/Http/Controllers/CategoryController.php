@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Industry;
 use Illuminate\Http\Request;
+use App\Models\ClientJob;
 use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
@@ -67,6 +68,12 @@ class CategoryController extends Controller
  
      public function Delete($id){
          $menu = Industry::findorfail(decrypt($id));
+         $jobs = ClientJob::where('industries_id', $menu->id)->first();
+         if($jobs){
+            \Session::flash('alert', 'error');
+            \Session::flash('message','You cannot delete this Industry, Jobs are already assigned to it');
+            return back();
+         }
          $menu->delete();
          \Session::flash('alert', 'success');
          \Session::flash('message','Industry Deleted successfully');
