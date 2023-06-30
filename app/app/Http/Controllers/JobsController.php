@@ -48,6 +48,7 @@ class JobsController extends Controller
             'deadline' => $request->daterangepicker,
             'salary_range' => $request->salary_range,
             'job_type' => $request->job_type,
+            'status' => 1
         ];
       // try{ 
         if($request->image){
