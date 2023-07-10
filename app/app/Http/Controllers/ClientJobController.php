@@ -7,7 +7,7 @@ use App\Models\AppliedJob;
 use Illuminate\Support\Facades\Session;
 use App\Models\ClientJob;
 use  App\Models\Menu;
-
+use Intervention\Image\Image;
 use App\Models\Industry;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\RequestServiceMail;
@@ -77,7 +77,7 @@ class ClientJobController extends Controller
         return back()->withInput();
        } 
        $filename = $fileName.'.'.$ext;
-       $doc->move('doc', $filename);
+      $doc->move('doc', $filename);
 
     
        $message = 'Dear Admin, You have received a new job application for '.$jobAp->title .' Please check the admin dashboard for more details'; 

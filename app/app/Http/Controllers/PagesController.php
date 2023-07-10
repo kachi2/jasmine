@@ -21,13 +21,13 @@ class PagesController extends Controller
         $menuId = Menu::where('id', $id)->first();
        
         if($menuId->slug == 'Blog'){
-            return view('frontend.blogs', ['blogs' => Blog::latest()->get(), 'popular' => Blog::where('views', '>', 0)->get(),
+            return view('frontend.blogs', ['blogs' => Blog::where('status',1)->latest()->get(), 'popular' => Blog::where(['status' => 1,['views', '>', 0]])->get(),
             'breadcrums' => $menuId,
         ]);
            }
         if($menuId->slug == 'jobs'){
             return view('frontend.jobs',[
-                'jobs' => ClientJob::where('status', '=', 1)->where('id', '!=', 9)->latest()->get(),
+                'jobs' => ClientJob::where(['status' => 1, ['id', '!=', 9]])->latest()->get(),
                 'team' => ClientJob::where('id', 9)->first(),
                 'breadcrums' => Menu::where('slug', 'jobs')->first(),
                 'industries' => Industry::get(),
@@ -88,15 +88,19 @@ class PagesController extends Controller
 
     public function BlogDetails($id){
         $id = decrypt($id);
-        return view('frontend.blog_details', [
+        $menuId = Menu::where('id', $id)->first();
+        $page['pages'] = 'Blog';
+        $page['breadcrums'] =  $menuId;
+        return view('frontend.blog_details', $page, [
             'blogs' => Blog::where('id', $id)->first(),
             'popular' => Blog::where('views', '>', '10')->get(),
+            
         ]);
     }
 
     public function JobCategory($id){
         $id = explode('-', $id);
-        $jobs = ClientJob::where('industries_id', $id)->get();
+        $jobs = ClientJob::where(['industries_id' => $id, 'status'=>'1'])->get();
         if(count($jobs)> 0){
         return view('frontend.jobs', [
             'jobs' => ClientJob::where('industries_id', $id)->get(),

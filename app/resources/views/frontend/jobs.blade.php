@@ -49,11 +49,12 @@
                                                 <div class="discover-item__info">
                                                     {{-- <span style="float:right"> Posted: {{$job->created_at->diffForHumans()}}</span> --}}
                                                     <h6 style="color:#0099ff">{{$job->title}}</h6> 
-                                                    <p style="color:#0099ff">{{$job->company}}</p>
-                                                    <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>   <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>   <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> ₦{{$job->salary_range}}</span> <br>
-                                                   <span> Job Function: {{$job->industry->name}}</span> <br>
+                                                    <p style="color:#0099ff">{{$job->company??$job->company}}</p>
+                                                    <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>   <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
+                                                     <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->salary_range}}</span> <br>
+                                                   <span> Job ID: {{$job->industry->name}}</span> <br>
                                                    <hr>
-                                                   <span> {!! substr($job->job_details,0,200) !!} <br> <a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="badge bg-primary"> Apply for this Job</a></span>
+                                                   <span> {!! substr($job->job_details,0,200) !!} <br> <a href="{{route('job-details', $job->id.'-'.$job->title)}}" class=" btn-primary btn-sm rounded"> Apply for this Job</a></span>
                                                 </div>
                                               
                                             </div>

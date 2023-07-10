@@ -38,18 +38,17 @@
                                 <!-- Start Single News Item -->
                                 <div class="news-item">
                                     <figure class="news-item__thumb">
-                                        <a href="#"><img src="{{asset('/assets/img/news/post-01.jpg')}}" alt="Post"/></a>
+                                        <a href="{{route('blog.details', encrypt($blog->id))}}"><img src="{{asset('images/'.$blog->image)}}" alt="Post"/></a>
                                     </figure>
 
-                                    <div class="news-item__info">
-                                        <h2><a href="#">{{$blog->title}}</a></h2>
+                                    <div class="news-item__info" style="text-align:justify">
+                                        <h2><a href="{{route('blog.details', encrypt($blog->id))}}">{{$blog->title}}</a></h2>
                                         <div class="post-meta">
-                                            <a href="#" class="post-date"><i class="fa fa-clock-o"></i>
-                                                {{$blog->created_at->format('d/m/y')}}</a>
+                                            {{-- <a href="#" class="post-date"><i class="fa fa-clock-o"></i>{{$blog->created_at->format('d/m/y')}}</a> --}}
                                         </div>
-                                        <p style="color:#fff">{!! substr($blog->contents, 0, 500) !!}
+                                        <p style="color:#fff; ">{!! substr($blog->contents, 0, 400) !!}
                                             </p>
-                                        {{-- <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a> --}}
+                                        <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a>
                                     </div>
                                 </div>
                                 <!-- End Single News Item -->

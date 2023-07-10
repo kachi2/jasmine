@@ -29,35 +29,50 @@ class JobsController extends Controller
     }
 
     public function JobsStore(Request $request){
-        $request->validate([
-            'title' => 'required',
-            'contents' => 'required',
-            'company' => 'required',
-            'industry_id' => 'required|integer',
-            'location' => 'required',
-            'daterangepicker' => 'required',
-            'salary_range' => 'required',
-            'job_type' => 'required',
-        ]);
-        $data = [
-            'title' => $request->title,
-            'job_details' => $request->contents,
-            'company' => $request->company,
-            'industries_id' => $request->industry_id,
-            'location' => $request->location,
-            'deadline' => $request->daterangepicker,
-            'salary_range' => $request->salary_range,
-            'job_type' => $request->job_type,
-            'status' => 1
-        ];
-      // try{ 
-        if($request->image){
-            $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $fileName = time().'.'.$ext;
-            $image->move('images',$fileName);
-            $data['logo'] = $fileName;
+     
+        if($request->title){
+            $data['title'] = $request->title;
         }
+        if($request->contents){
+            $data['job_details'] = $request->contents;
+        }
+        if($request->company){
+            $data['company'] = $request->company;
+        }
+        if($request->industry_id){
+            $data['industries_id'] = $request->industry_id;
+        }
+        if($request->location){
+            $data['location'] = $request->location;
+        }
+        if($request->daterangepicker){
+            $data['salary_range'] = $request->daterangepicker;
+        }
+        if($request->job_type){
+            $data['job_type'] = $request->job_type;
+        }
+        $data['status'] = 1;
+
+
+        // $data = [
+        //     'title' => $request->title,
+        //     'job_details' => $request->contents,
+        //     'company' => $request->company,
+        //     'industries_id' => $request->industry_id,
+        //     'location' => $request->location,
+        //     'deadline' => $request->daterangepicker,
+        //     'salary_range' => $request->salary_range,
+        //     'job_type' => $request->job_type,
+        //     'status' => 1
+        // ];
+      // try{ 
+        // if($request->image){
+        //     $image = $request->file('image');
+        //     $ext = $image->getClientOriginalExtension();
+        //     $fileName = time().'.'.$ext;
+        //     $image->move('images',$fileName);
+        //     $data['logo'] = $fileName;
+        // }
          ClientJob::create($data);
        
         \Session::flash('alert', 'success');
@@ -83,24 +98,48 @@ class JobsController extends Controller
     public function JobsUpdate(Request $request, $id){
         $jobs = ClientJob::whereId(decrypt($id))->first();
     try{
-        $data = [
-            'title' => $request->title,
-            'job_details' => $request->contents,
-            'company' => $request->company,
-            'industries_id' => $request->industry_id,
-            'location' => $request->location,
-            'deadline' => $request->daterangepicker,
-            'salary_range' => $request->salary_range,
-            'job_type' => $request->job_type,
-            'status' => 1
-        ];
-        if($request->image){
-            $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $fileName = time().'.'.$ext;
-            $image->move('images',$fileName);
-            $data['logo'] = $fileName;
+        // $data = [
+        //     'title' => $request->title,
+        //     'job_details' => $request->contents,
+        //     'company' => $request->company,
+        //     'industries_id' => $request->industry_id,
+        //     'location' => $request->location,
+        //     'deadline' => $request->daterangepicker,
+        //     'salary_range' => $request->salary_range,
+        //     'job_type' => $request->job_type,
+        //     'status' => 1
+        // ];
+        // if($request->image){
+        //     $image = $request->file('image');
+        //     $ext = $image->getClientOriginalExtension();
+        //     $fileName = time().'.'.$ext;
+        //     $image->move('images',$fileName);
+        //     $data['logo'] = $fileName;
+        // }
+
+        if($request->title){
+            $data['title'] = $request->title;
         }
+        if($request->contents){
+            $data['job_details'] = $request->contents;
+        }
+        if($request->company){
+            $data['company'] = $request->company;
+        }
+        if($request->industry_id){
+            $data['industries_id'] = $request->industry_id;
+        }
+        if($request->location){
+            $data['location'] = $request->location;
+        }
+        if($request->daterangepicker){
+            $data['salary_range'] = $request->daterangepicker;
+        }
+        if($request->job_type){
+            $data['job_type'] = $request->job_type;
+        }
+        $data['status'] = 1;
+        
         $jobs->fill($data)->save();
         \Session::flash('alert', 'success');
         \Session::flash('message','Job updated successfully');

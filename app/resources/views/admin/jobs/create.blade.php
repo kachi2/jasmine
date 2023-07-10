@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <select type="text" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" placeholder="Select Industries">
-                                            <option> Select Job Industry </option>
+                                            <option> Select Id </option>
                                             @forelse ($industries as $ind)
                                             <option value="{{$ind->id}}"> {{$ind->name}} </option>
                                             @empty
@@ -110,7 +110,7 @@
 
                                          </div>
 
-                                          <div class="col-md-6 pt-4">
+                                          {{-- <div class="col-md-6 pt-4">
                                               <div class="custom-file">
                                             <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
                                                 <label class="custom-file-label" for="customFile">Choose company Logo</label>
@@ -120,7 +120,7 @@
                                               @error('image')
                                             <span class="invalid-feedback"> <small> *</small> </span>
                                             @enderror
-                                         </div>
+                                         </div> --}}
                                         
                                             
                             </div> 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Image;
 class BlogController extends Controller
 {
     
@@ -44,6 +45,7 @@ class BlogController extends Controller
             $ext = $image->getClientOriginalExtension();
             $fileName = time().'.'.$ext;
             $image->move('images',$fileName);
+            \Image::make(request()->file('image'))->resize(400,250)->save('images/'.$fileName);
             $data['image'] = $fileName;
         }
          Blog::create($data);
@@ -80,7 +82,7 @@ class BlogController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $fileName = time().'.'.$ext;
-            $image->move('images',$fileName);
+            \Image::make(request()->file('image'))->resize(400,250)->save('images/'.$fileName);
             $blog->image = $fileName;
         }
         $blog->save();
