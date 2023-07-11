@@ -53,6 +53,19 @@ class JobsController extends Controller
         }
         $data['status'] = 1;
 
+        $checkIndustries = Industry::where('name', 'LIKE', "%$request->industry_id%")->first();
+        if($checkIndustries){
+            $data['industries_id'] = $checkIndustries->id;
+        }else{
+            $crt = Industry::create([
+                'name' =>  $request->industry_id
+            ]);
+            sleep(1);
+            $checkIndustries = Industry::where('name', '%like', $request->industry_id)->first();
+            if($crt){
+            $data['industries_id'] = $checkIndustries->id;
+            }
+        }
 
         // $data = [
         //     'title' => $request->title,

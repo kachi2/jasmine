@@ -8,7 +8,7 @@
            <i class="fa fa-home"></i> &nbsp;Dashboard</a>
         </li>
 
-        <li class="navigation-divider">Menu</li>
+        <li class="navigation-divider">Website Menus</li>
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Menus"
            data-nav-target="#dashboards">
@@ -17,7 +17,7 @@
                 <li><a href="{{route('admin.menu.index')}}"> Manage Menu</a></li>
             </ul>
         </li>
-        <li class="navigation-divider">Pages</li>
+        <li class="navigation-divider">Website Pages</li>
                <li>
                <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Pages"
                data-nav-target="#dashboards">
