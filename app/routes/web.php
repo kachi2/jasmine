@@ -12,6 +12,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManagePagesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Check2faController;
 use App\Http\Controllers\FaqContoller;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SliderController;
@@ -30,9 +31,10 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
+Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
 
 Route::group(['prefix' => 'admins', 'as' => 'admin.'], function(){
-Route::middleware('auth')->group(function(){
+Route::middleware(['check2fa', 'auth'])->group(function(){
     Route::get('/', [AdminDashboardController::class, 'Index'])->name('index');
     Route::controller(MenuPage::class)->group(function(){
         Route::get('/website/menus', 'Index')->name('menu.index');
