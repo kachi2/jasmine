@@ -26,20 +26,21 @@
                                     </div>
                                         
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <select type="text" name="industry_id"  value="{{$job->industry_id}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Select Industries">
-                                            <option> Select Job Industry </option>
-                                            @forelse ($industries as $ind)
-                                            <option value="{{$ind->id}}" @if($ind->id == $job->industries_id) selected @endif> {{$ind->name}} </option>
-                                            @empty
-                                            @endforelse
-                                                  @error('industry_id')
-                                                  <span class="invalid-feedback"> <small> *</small> </span>
-                                                  @enderror
-                                            </select>
-                                          </div>
-                                        </div>
+                                      <div class="form-group">
+                                  <input type="text" placeholder="Enter Job Id" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1" list="cityname">
+                                  <small id="emailHelp" class="form-text text-muted">Enter Job Id
+                                  </small>
+                                  <datalist id="cityname">
+                                                  @forelse ($industries as $ind)
+                                                  <option value="{{$ind->name}}"> {{$ind->name}} </option>
+                                                  @empty
+                                                  @endforelse
+                                                        @error('industry_id')
+                                                        <span class="invalid-feedback"> <small> *</small> </span>
+                                                        @enderror
+                                              </datalist>
+                                      </div>
+                                  </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" name="location"  value="{{$job->location}}" class="form-control @error('location') is-invalid @enderror" id="exampleInputEmail1"
